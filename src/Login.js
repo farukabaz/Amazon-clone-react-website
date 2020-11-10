@@ -5,6 +5,14 @@ import {Link} from 'react-router-dom'
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const signIn = e => {
+        e.preventDefault();
+        // Sign in firebase code
+    }
+    const register = e => {
+        e.preventDefault();
+        // Register firebase code
+    }
 
     return (
         <div className='login'>
@@ -15,16 +23,27 @@ function Login() {
             <div className='login__container'>
                 <h1>Sign in</h1>
                 <form>
-                <h5>Email</h5>
-                <input type='text'/>
-                <h5>Password</h5>
-                <input type='password'/>
-                <button className='login__signinButton'>Sign in</button>
+                    <h5>Email</h5>
+                    <input 
+                    type='text' 
+                    value={email} 
+                    onChange={e => setEmail(e.target.value)}
+                    />
+                    <h5>Password</h5>
+                    <input 
+                    type='password'
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
+                    <button 
+                    type='submit' 
+                    onClick={signIn} 
+                    className='login__signinButton'>Sign in</button>
                 </form>
                 <p>
                     By signig-in you agree to amazon clone contiionds of use and sale. Please see our privacy notice, our cookies notice and interest-based ads notice.
                 </p>
-                <button className='login__registerButton'>Create your amazon account</button>
+                <button onClick={register} className='login__registerButton'>Create your amazon account</button>
             </div>
         </div>
     )
